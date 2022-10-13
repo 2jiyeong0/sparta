@@ -13,10 +13,10 @@ result = [item for item in result if item[6]=='person']
 
 tmp_img = cv2.imread('image.jpeg')
 print(tmp_img.shape)
-cropped = tmp_img[int(result[0][1]):int(result[0][3]), int(result[0][0]):int(result[0][2])]
 
 
 for i in range(len(result)):
-    cv2.rectangle(tmp_img, (int(results.xyxy[0][i][0].item()), int(results.xyxy[0][i][1].item())), (int(results.xyxy[0][i][2].item()), int(results.xyxy[0][i][3].item())), (255,255,255))
+    cropped = tmp_img[int(result[i][1]):int(result[i][3]), int(result[i][0]):int(result[i][2])]
     cv2.imwrite(f'people{i+1}.png', cropped)
-    cv2.imwrite('result.png', tmp_img)
+    cv2.rectangle(tmp_img, (int(results.xyxy[0][i][0].item()), int(results.xyxy[0][i][1].item())), (int(results.xyxy[0][i][2].item()), int(results.xyxy[0][i][3].item())), (255,255,255))
+    cv2.imwrite('result1.png', tmp_img)
