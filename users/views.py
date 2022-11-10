@@ -18,6 +18,5 @@ class UserView(APIView):
             return Response({"messeage":f"${serializer.errors}"}, status=status.HTTP_400_BAD_REQUEST)
 
 
-
 class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
